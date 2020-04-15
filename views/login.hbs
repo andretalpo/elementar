@@ -1,0 +1,34 @@
+<form action="/auth/login" method="POST">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" name="username">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Senha" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
+
+<form action="/auth/signup" method="POST">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" name="username">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Senha" name="password">
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="E-mail" name="email">
+        <small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos seu e-mail.</small>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nome" name="name">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+ <div>
+    {{#if errorMessage}}
+      <span>{{errorMessage}}</span>
+    {{/if}}
+  </div>
+
+<a href="/auth/login/facebook" class="btn btn-primary">Login com Facebook</a>
