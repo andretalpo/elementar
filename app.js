@@ -127,4 +127,32 @@ app.use('/', indexRooutes);
 const authRoutes = require('./routes/authRoutes');
 app.use('/auth', authRoutes);
 
+// private route middleware
+app.use((req, res, next) => {
+  if (req.isAuthenticated()) {
+    next();
+    return;
+  }
+
+  res.redirect('/auth/login');
+});
+
+const userRoutes = require('./routes/userRoutes');
+app.use('/', userRoutes);
+
+
+app.use((req, res, next) => {
+  const { user } = req;
+
+  if (user.role === 'admin') {
+    next();
+    return;
+  }
+  res.redirect('/auth/login');
+});
+
+const adminRoutes = require('./routes/adminRoutes');
+app.use('/', adminRoutes);
+
+
 module.exports = app;
