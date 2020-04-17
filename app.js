@@ -140,6 +140,8 @@ app.use((req, res, next) => {
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
 
+const newsRoutes = require('./routes/newsRoutes');
+app.use('/news', newsRoutes);
 
 app.use((req, res, next) => {
   const { user } = req;

@@ -1,0 +1,24 @@
+<form action="/news/create" method="POST">
+    <h1>Cadastro de notícias</h1>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Link" name="newsUrl">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Título" name="title">
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="radioTruth" name="voteRadio" value="truth" class="custom-control-input">
+        <label class="custom-control-label" for="radioTruth">Verdadeira</label>
+    </div>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="radioFake" name="voteRadio" value="fake" class="custom-control-input">
+        <label class="custom-control-label" for="radioFake">Falsa</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
+
+<div>
+    {{#if errorMessage}}
+    <span>{{errorMessage}}</span>
+    {{/if}}
+</div>
