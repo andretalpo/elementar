@@ -6,12 +6,12 @@ const newsSchema = new Schema({
     newsUrl: { type: String, required: true, unique: true },
     specText: { type: String },
     sourceUrl: { type: String },
-    fakeVotes: { type: Number, min: 0, default: 0},
-    truthVotes: { type: Number, min: 0, default: 0},
+    fakeVotes: { type: Number, min: 0, default: 0 },
+    truthVotes: { type: Number, min: 0, default: 0 },
     active: { type: Boolean, required: true, default: true },
     creator: { type: mongoose.Types.ObjectId, ref: 'User', required: true },
-    spec: { type: mongoose.Types.ObjectId, ref: 'User'},
-    votingUsers: [{ type: mongoose.Types.ObjectId, ref: 'User'}],
+    spec: { type: mongoose.Types.ObjectId, ref: 'User' },
+    votingUsers: [{ type: mongoose.Types.ObjectId, ref: 'User' }],
     //retorno da API
 });
 

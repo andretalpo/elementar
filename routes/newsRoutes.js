@@ -1,5 +1,6 @@
 const express = require('express');
 const News = require('../models/News');
+const User = require('../models/User');
 
 const router = express.Router();
 
@@ -11,29 +12,28 @@ router.post('/create', async (req, res) => {
     const { user } = req;
 
     const { newsUrl, title, voteRadio } = req.body;
-    
+
     const fake = voteRadio === "fake" ? 1 : 0;
-    const truth =  voteRadio === "truth" ? 1 : 0;
+    const truth = voteRadio === "truth" ? 1 : 0;
 
     try {
-        await new News({ newsUrl, title, creator: user._id, votingUsers: [user._id], fakeVotes: fake, truthVotes: truth }).save();
-        //salvar noticia no usuario
+        const news = new News({ newsUrl, title, creator: user._id, votingUsers: [user._id], fakeVotes: fake, truthVotes: truth });
+        await news.save();
+        if (fake > 0 || truth > 0) {
+            await User.updateOne({ _id: user._id }, { $push: { votedNews: [news] } });
+        }
         res.redirect('/user-home');
     } catch (error) {
-        // if (error.message.includes('required')) {
-        //     res.render('login', { errorMessage: 'Por favor, preencha todos os campos.' });
-        //     return;
-        // }
+        console.log(error);
+        if (error.message.includes('required')) {
+            res.render('create-news', { errorMessage: 'Por favor, preencha todos os campos.' });
+            return;
+        }
 
-        // if (error.message.includes('username')) {
-        //     res.render('login', { errorMessage: 'Usuário já cadastrado. Por favor escolha outro nome de usuário.' });
-        //     return;
-        // }
-
-        // if (error.message.includes('email')) {
-        //     res.render('login', { errorMessage: 'E-mail já cadastrado. Por favor insira outro e-mail.' });
-        //     return;
-        // }
+        if (error.message.includes('newsUrl')) {
+            res.render('create-news', { errorMessage: 'A url dessa notícia já foi cadastrada.' });
+            return;
+        }
     }
 })
 
