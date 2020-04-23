@@ -1,2 +1,29 @@
-<h2>Usuário logado</h2>
+<h2>Bem vindo, {{user.name}}</h2>
 <a href="/news/create">Cadastrar Notícia</a>
+
+<div>
+    {{#each news}}
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+        <div class="card-header"><a href="/news?newsUrl={{this.newsUrl}}">{{this.title}}</a></div>
+        <div class="card-body">
+            <p class="card-text">{{this.newsUrl}}</p>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+
+
+
+<form action="/news" method="GET">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+<div>
+    {{#if errorMessage}}
+    <span>{{errorMessage}}</span>
+    {{/if}}
+</div>
