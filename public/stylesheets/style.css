@@ -1,0 +1,10 @@
+@font-face {
+    font-family: avenir;
+    src: url("avenir-next-lt-pro.otf");
+}
+
+body {
+    background-color: #F7F4F3;
+    font-family: avenir, sans-serif;
+    color: #564d4a;
+}
