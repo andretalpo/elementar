@@ -54,20 +54,24 @@ router.post('/login',
 router.get('/login/facebook', passport.authenticate('facebook'));
 
 router.get(
-  '/facebook/callback',
-  passport.authenticate(
-    'facebook',
-    { failureRedirect: '/login' }
-  ),
-  (req, res) => {
-    res.redirect('/user-home');
-  },
+    '/facebook/callback',
+    passport.authenticate(
+        'facebook',
+        { failureRedirect: '/login' }
+    ),
+    (req, res) => {
+        res.redirect('/user-home');
+    },
 );
 
 // logout
 router.get('/logout', (req, res) => {
-  req.logout();
-  res.redirect('/auth/login');
+    req.logout();
+    res.redirect('/auth/login');
 })
+
+router.get('/authenticated', (req, res) => {
+    res.status(200).json({ authenticated: req.isAuthenticated() });
+});
 
 module.exports = router;

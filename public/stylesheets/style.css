@@ -8,3 +8,7 @@ body {
     font-family: avenir, sans-serif;
     color: #564d4a;
 }
+
+.invisible {
+    display: none;
+}

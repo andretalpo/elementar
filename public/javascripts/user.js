@@ -3,7 +3,7 @@ document.querySelector('#btn-search-user').onclick = async e => {
 
     limpar();
     
-    const { data } = await axios.get(`http://localhost:3000/user/${username}`);
+    const { data } = await axios.get(`/user/${username}`);
     
     if (!username || !data) {
       mensagem("Não foi encontrado nenhum usuário.");
@@ -41,7 +41,7 @@ document.querySelector('#btn-update-user').onclick = async e => {
 
     const username = document.querySelector('#username').value;
 
-    const message = await axios.put(`http://localhost:3000/user/${username}`, { role });
+    const message = await axios.put(`/user/${username}`, { role });
 
     mensagem(message.data.message);
 }
@@ -49,7 +49,7 @@ document.querySelector('#btn-update-user').onclick = async e => {
 document.querySelector('#btn-delete-user').onclick = async e => {
   const username = document.querySelector('#username').value;
 
-  const message = await axios.delete(`http://localhost:3000/user/${username}`);
+  const message = await axios.delete(`/user/${username}`);
 
   mensagem(message.data.message);
 }

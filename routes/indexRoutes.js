@@ -32,7 +32,7 @@ router.get('/news', async (req, res) => {
       return;
     }
 
-    res.render('news', { news: news[0] });
+    res.render('news', { news: news[0], user });
   } catch (err) {
     throw new Error(err);
   }

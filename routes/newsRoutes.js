@@ -37,19 +37,39 @@ router.post('/create', async (req, res) => {
     }
 })
 
-router.put('/:id/voteTruth', async(req, res, next) => {
+router.put('/:id/voteTruth', async (req, res, next) => {
     const { id } = req.params;
     const { user } = req;
 
     try {
-        await News.updateOne({ _id: id }, { $push: { votingUsers: [user._id] }, $inc: { truthVotes: 1 } });
-
-        await User.updateOne({ _id: user._id }, { $push: { votedNews: [id] } });
-
-        res.redirect('/');
-
+        const voted = await News.findOne({ _id: id, votingUsers: user._id });
+        if (!voted) {
+            await News.updateOne({ _id: id }, { $push: { votingUsers: [user._id] }, $inc: { truthVotes: 1 } });
+            await User.updateOne({ _id: user._id }, { $push: { votedNews: [id] } });
+            res.status(200).json({ message: 'OK' });
+        } else {
+            res.status(200).json({ message: 'Essa notícia já foi votada por esse usuário.' });
+        }
     } catch (error) {
-        console.log(error);
+        throw new Error(error);
+    }
+});
+
+router.put('/:id/voteFake', async (req, res, next) => {
+    const { id } = req.params;
+    const { user } = req;
+
+    try {
+        const voted = await News.findOne({ _id: id, votingUsers: user._id });
+        console.log(voted);
+        if (!voted) {
+            await News.updateOne({ _id: id }, { $push: { votingUsers: [user._id] }, $inc: { fakeVotes: 1 } });
+            await User.updateOne({ _id: user._id }, { $push: { votedNews: [id] } });
+            res.status(200).json({ message: 'OK' });
+        } else {
+            res.status(200).json({ message: 'Essa notícia já foi votada por esse usuário.' });
+        }
+    } catch (error) {
         throw new Error(error);
     }
 });
