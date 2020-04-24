@@ -1,7 +1,13 @@
 <h2>{{news.title}}</h2>
+<span id="newsId" newsId={{news._id}}></span>
 <h3>{{news.newsUrl}}</h3>
-<p>{{news.specText}}</p>
-<p>{{news.sourceUrl}}</p>
+<p>Análise de especialista: {{news.specText}}</p>
+<p>Fonte: {{news.sourceUrl}}</p>
 {{!-- <p>{{news.resultadoApi}}</p> --}}
-<p>{{news.truthVotes}}</p>
-<p>{{news.fakeVotes}}</p>
+<h5>Votação dos membros</h5>
+<p>Verdadeiro: {{news.truthVotes}} voto(s)</p>
+<button class="btn btn-success" id="voteTruth">Verdadeiro</button>
+<p>Falso: {{news.fakeVotes}} voto(s)</p>
+<button class="btn btn-danger">Falso</button>
+
+<script src="/javascripts/news.js"></script>
