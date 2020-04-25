@@ -1,5 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
+const News = require('../models/News');
+
 
 const router = express.Router();
 
@@ -35,6 +37,17 @@ router.delete('/user/:username', async (req, res, next) => {
     try {
         await User.deleteOne({ username });
         res.status(200).json({ message: 'Usuário excluído com sucesso.' });
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
+router.delete('/news/:newsId', async (req, res, next) => {
+    const { newsId } = req.params;
+
+    try {
+        await News.deleteOne({ _id: newsId });
+        res.status(200).json({ message: 'Notícia excluída com sucesso.' });
     } catch (err) {
         throw new Error(err);
     }

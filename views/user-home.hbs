@@ -1,6 +1,8 @@
 <h2>Bem vindo, {{user.name}}</h2>
 <a href="/news/create">Cadastrar Notícia</a>
 
+<a href="/user" class="invisible" id="gestaoUsuario">Gestão de Usuários</a>
+
 <div>
     {{#each news}}
     <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
@@ -27,3 +29,5 @@
     <span>{{errorMessage}}</span>
     {{/if}}
 </div>
+
+<script src="/javascripts/user-home.js"></script>

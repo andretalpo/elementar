@@ -8,6 +8,10 @@ axios.get('/auth/authenticated')
         if (role === 'spec') {
             document.querySelector('#adicionarAnalise').classList.remove('invisible');
         }
+
+        if (role === 'admin') {
+            document.querySelector('#excluirNoticia').classList.remove('invisible');
+        }
     })
     .catch(error => {
         console.log(error);
@@ -63,4 +67,12 @@ document.querySelector('#salvarAnalise').onclick = async element => {
     } else {
         window.location.reload();
     }
+};
+
+document.querySelector('#excluirNoticia').onclick = async element => {
+    const newsId = document.querySelector('#newsId').getAttribute('newsId');
+
+    await axios.delete(`/news/${newsId}`);
+
+    window.location.replace('/user-home');
 };
