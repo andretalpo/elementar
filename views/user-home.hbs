@@ -1,6 +1,5 @@
 <h2>Bem vindo, {{user.name}}</h2>
 <a href="/news/create">Cadastrar Notícia</a>
-
 <a href="/user" class="invisible" id="gestaoUsuario">Gestão de Usuários</a>
 
 <div>
@@ -14,16 +13,13 @@
     {{/each}}
 </div>
 
-
-
-
-
 <form action="/news" method="GET">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
         <button type="submit" class="btn btn-primary">Buscar</button>
     </div>
 </form>
+
 <div>
     {{#if errorMessage}}
     <span>{{errorMessage}}</span>

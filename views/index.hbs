@@ -1,25 +1,30 @@
-<div class="home container-fluid shadow">
+<div class="bg-city">
+    <div class="container-fluid center-v h-100">
+        <div class="home p-5 container-sm shadow">
 
-    <div class="oneline align-base">
-        <h1>{{title}},</h1>
-        <p>ou não?</p>
-    </div>
-
-    <div class="container-sm">
-        <p>Tem dúvidas se uma notícia é considerada fake news? Cole o link abaixo e descubra!</p>
-        <form action="/news" method="GET">
-            <div class="form-group oneline">
-                <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
-                <button type="submit" class="btn btn-primary">Buscar</button>
+            <div class="oneline-wrap align-base">
+                <h1>{{title}}...</h1>
+                <p class="px-3">ou não?</p>
             </div>
-        </form>
-    </div>
 
-    <div>
-        {{#if errorMessage}}
-        <span>{{errorMessage}}</span>
-        {{/if}}
-    </div>
+            <div class="container-sm py-4">
+                <p>Tem dúvidas se uma notícia é considerada fake news? Cole o link abaixo e descubra!</p>
+                <form class="py-4" action="/news" method="GET">
+                    <div class="form-group oneline">
+                        <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </form>
+                <p>Você também pode se cadastrar, assim poderá inserir novas notícias e votar as que considera verdade
+                    ou mentira.</p>
+            </div>
 
-    <p>Você também pode se cadastrar, assim poderá inserir novas notícias e votar as que considera verdade ou mentira.</p>
+            <div>
+                {{#if errorMessage}}
+                <span class="text-danger">{{errorMessage}}</span>
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
 </div>

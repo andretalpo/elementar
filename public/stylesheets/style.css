@@ -3,10 +3,15 @@
     src: url("avenir-next-lt-pro.otf");
 }
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: #F7F4F3;
     font-family: avenir, sans-serif;
     color: #564d4a;
+    height: 100%;
 }
 
 .invisible {
@@ -18,7 +23,7 @@ a {
 }
 
 .navbar {
-    background-color: #F7F4F3;
+    height: 65px;
 }
 
 .nav-item {
@@ -26,7 +31,6 @@ a {
 }
 
 .navbar-brand {
-    color: #C20114 !important;
     font-weight: bolder;
     font-size: 1.7em;
 }
@@ -37,19 +41,52 @@ a {
 } */
 
 .home {
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
     border-radius: 10px;
-    padding: 30px;
 }
 
 .oneline {
     display: flex;
 }
 
+.oneline-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .align-base {
     align-items: baseline;
 }
 
-.body-hbs {
-    margin: 20px auto;
+.bg-city {
+    background-image: url(../images/city.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 94%;
+}
+
+.center-v {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home p {
+    font-size: 1.3em;
+    font-weight: lighter;
+}
+
+.home input, .home button {
+    border-radius: 0px;
+}
+
+h2 {
+    font-size: 2.2em;
+}
+
+.container-border {
+    border: 1px solid lightgray;
+    border-radius: 5px;
 }

@@ -74,7 +74,7 @@ router.get('/authenticated', (req, res) => {
     const { user } = req;
     let role;
     if (user) role = user.role;
-    res.status(200).json({ authenticated: req.isAuthenticated(), role});
+    res.status(200).json({ authenticated: req.isAuthenticated(), role });
 });
 
 module.exports = router;

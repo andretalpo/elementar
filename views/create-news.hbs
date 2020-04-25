@@ -1,24 +1,28 @@
-<form action="/news/create" method="POST">
-    <h1>Cadastro de notícias</h1>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Título" name="title">
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="radioTruth" name="voteRadio" value="truth" class="custom-control-input">
-        <label class="custom-control-label" for="radioTruth">Verdadeira</label>
-    </div>
-    <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" id="radioFake" name="voteRadio" value="fake" class="custom-control-input">
-        <label class="custom-control-label" for="radioFake">Falsa</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
+<div class="container-fluid create-news">
+    <div class="container-border p-3 mx-3 my-4">
+        <form action="/news/create" method="POST">
+            <h2 class="mb-3">Cadastro de notícias</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Título" name="title">
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="radioTruth" name="voteRadio" value="truth" class="custom-control-input">
+                <label class="custom-control-label" for="radioTruth">Verdadeira</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="radioFake" name="voteRadio" value="fake" class="custom-control-input">
+                <label class="custom-control-label" for="radioFake">Falsa</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
 
-<div>
-    {{#if errorMessage}}
-    <span>{{errorMessage}}</span>
-    {{/if}}
+        <div>
+            {{#if errorMessage}}
+            <span>{{errorMessage}}</span>
+            {{/if}}
+        </div>
+    </div>
 </div>
