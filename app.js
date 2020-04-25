@@ -143,6 +143,16 @@ app.use('/', userRoutes);
 const newsRoutes = require('./routes/newsRoutes');
 app.use('/news', newsRoutes);
 
+app.use('/news/spec', (req, res, next) => {
+  const { user } = req;
+
+  if (user.role === 'spec') {
+    next();
+    return;
+  }
+  res.redirect('/auth/login');
+});
+
 app.use((req, res, next) => {
   const { user } = req;
 

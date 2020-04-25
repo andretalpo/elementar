@@ -1,9 +1,17 @@
-window.onload = async () => {
-    const userId = document.querySelector('#userId').getAttribute('userId');
-    if (userId) {
-        document.querySelectorAll('.vote-button').forEach(e => e.classList.remove('invisible'));
-    }
-}
+axios.get('/auth/authenticated')
+    .then(response => {
+        const { authenticated, role } = response.data;
+        if (authenticated) {
+            document.querySelectorAll('.vote-button').forEach(e => e.classList.remove('invisible'));
+        }
+
+        if (role === 'spec') {
+            document.querySelector('#adicionarAnalise').classList.remove('invisible');
+        }
+    })
+    .catch(error => {
+        console.log(error);
+    });
 
 document.querySelector('#voteTruth').onclick = async element => {
     const newsId = document.querySelector('#newsId').getAttribute('newsId');
@@ -31,5 +39,28 @@ document.querySelector('#voteFake').onclick = async element => {
         }
     } catch (error) {
         console.log(error);
+    }
+};
+
+document.querySelector('#adicionarAnalise').onclick = element => {
+    document.querySelector('#textAnalise').classList.remove('invisible');
+    document.querySelector('#textFonte').classList.remove('invisible');
+
+    document.querySelector('#salvarAnalise').classList.remove('invisible');
+    document.querySelector('#adicionarAnalise').classList.add('invisible');
+};
+
+document.querySelector('#salvarAnalise').onclick = async element => {
+    const newsId = document.querySelector('#newsId').getAttribute('newsId');
+    const analise = document.querySelector('#textAnalise').value;
+    const fonte = document.querySelector('#textFonte').value;
+
+    console.log(newsId, analise, fonte);
+    const response = await axios.put(`/news/spec/${newsId}/analisys`, { specText: analise, sourceUrl: fonte });
+    
+    if (response.data.message.includes('Preencha')) {
+        document.querySelector('#message').innerHTML = response.data.message;
+    } else {
+        window.location.reload();
     }
 };

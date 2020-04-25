@@ -19,7 +19,7 @@ router.get('/news', async (req, res) => {
 
   const emptyField = "Preencha a url da notícia.";
   const notFound = "Notícia não cadastrada";
-  
+
   if (!newsUrl) {
     res.redirect(user ? `/user-home?error=${emptyField}` : `/?error=${emptyField}`);
     return;
@@ -32,7 +32,7 @@ router.get('/news', async (req, res) => {
       return;
     }
 
-    res.render('news', { news: news[0], user });
+    res.render('news', { news: news[0] });
   } catch (err) {
     throw new Error(err);
   }

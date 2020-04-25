@@ -1,15 +1,18 @@
 <h2>{{news.title}}</h2>
 <span id="newsId" newsId={{news._id}}></span>
-<span id="userId" userId={{user._id}}></span>
 <h3>{{news.newsUrl}}</h3>
 <p>Análise de especialista: {{news.specText}}</p>
+<textarea class="invisible" name="text-analise" id="textAnalise" cols="30" rows="10"></textarea>
 <p>Fonte: {{news.sourceUrl}}</p>
+<input class="invisible" type="text" name="text-fonte" id="textFonte">
 {{!-- <p>{{news.resultadoApi}}</p> --}}
 <h5>Votação dos membros</h5>
 <p>Verdadeiro: {{news.truthVotes}} voto(s)</p>
 <button class="btn btn-success vote-button invisible" id="voteTruth">Verdadeiro</button>
 <p>Falso: {{news.fakeVotes}} voto(s)</p>
 <button class="btn btn-danger vote-button invisible" id="voteFake">Falso</button>
+<button class="btn btn-primary invisible" id="adicionarAnalise">Editar análise</button>
+<button class="btn btn-primary invisible" id="salvarAnalise">Confirmar</button>
 
 <div>
     <span id="message">{{message}}</span>

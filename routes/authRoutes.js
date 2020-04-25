@@ -71,7 +71,10 @@ router.get('/logout', (req, res) => {
 })
 
 router.get('/authenticated', (req, res) => {
-    res.status(200).json({ authenticated: req.isAuthenticated() });
+    const { user } = req;
+    let role;
+    if (user) role = user.role;
+    res.status(200).json({ authenticated: req.isAuthenticated(), role});
 });
 
 module.exports = router;

@@ -74,4 +74,22 @@ router.put('/:id/voteFake', async (req, res, next) => {
     }
 });
 
+router.put('/spec/:id/analisys', async (req, res) => {
+    const { id } = req.params;
+    const { specText, sourceUrl } = req.body;
+    const { user } = req;
+
+    if (!specText || !sourceUrl) {
+        res.status(200).json({ message: 'Preencha todos os campos.' });
+        return;
+    }
+
+    try {
+        await News.updateOne({ _id: id }, { specText, sourceUrl, spec: user._id });
+        res.status(200).json({ message: 'Ok' });
+    } catch (err) {
+        throw new Error(err);
+    }
+});
+
 module.exports = router;

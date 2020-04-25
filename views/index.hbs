@@ -1,14 +1,25 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<form action="/news" method="GET">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
-        <button type="submit" class="btn btn-primary">Buscar</button>
+<div class="home container-fluid shadow">
+
+    <div class="oneline align-base">
+        <h1>{{title}},</h1>
+        <p>ou não?</p>
     </div>
-</form>
-<a href="/auth/login">Login</a>
-<div>
-    {{#if errorMessage}}
-    <span>{{errorMessage}}</span>
-    {{/if}}
+
+    <div class="container-sm">
+        <p>Tem dúvidas se uma notícia é considerada fake news? Cole o link abaixo e descubra!</p>
+        <form action="/news" method="GET">
+            <div class="form-group oneline">
+                <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        {{#if errorMessage}}
+        <span>{{errorMessage}}</span>
+        {{/if}}
+    </div>
+
+    <p>Você também pode se cadastrar, assim poderá inserir novas notícias e votar as que considera verdade ou mentira.</p>
 </div>

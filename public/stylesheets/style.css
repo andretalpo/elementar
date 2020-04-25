@@ -12,3 +12,44 @@ body {
 .invisible {
     display: none;
 }
+
+a {
+    color: #564d4a;
+}
+
+.navbar {
+    background-color: #F7F4F3;
+}
+
+.nav-item {
+    font-size: 1.2em;
+}
+
+.navbar-brand {
+    color: #C20114 !important;
+    font-weight: bolder;
+    font-size: 1.7em;
+}
+
+/* .home {
+    background-color: #C20114;
+    color: #ecebf3;
+} */
+
+.home {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.oneline {
+    display: flex;
+}
+
+.align-base {
+    align-items: baseline;
+}
+
+.body-hbs {
+    margin: 20px auto;
+}
