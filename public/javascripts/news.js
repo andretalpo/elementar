@@ -61,7 +61,7 @@ document.querySelector('#salvarAnalise').onclick = async element => {
 
     console.log(newsId, analise, fonte);
     const response = await axios.put(`/news/spec/${newsId}/analisys`, { specText: analise, sourceUrl: fonte });
-    
+
     if (response.data.message.includes('Preencha')) {
         document.querySelector('#message').innerHTML = response.data.message;
     } else {

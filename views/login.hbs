@@ -1,34 +1,45 @@
-<form action="/auth/login" method="POST">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" name="username">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" placeholder="Senha" name="password">
-    </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
-</form>
+<div class="container-fluid login">
 
-<form action="/auth/signup" method="POST">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" name="username">
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" placeholder="Senha" name="password">
-    </div>
-    <div class="form-group">
-        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="E-mail" name="email">
-        <small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos seu e-mail.</small>
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nome" name="name">
-    </div>
-    <button type="submit" class="btn btn-primary">Cadastrar</button>
-</form>
+    <div class="row my-2">
+        <div class="container-fluid container-border p-3 mx-2 my-1 col-sm">
+            <h2>Login</h2>
+            <form action="/auth/login" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Senha" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+            <a href="/auth/login/facebook" class="btn btn-primary my-3">Login com Facebook</a>
+        </div>
 
-<div>
-    {{#if errorMessage}}
-    <span>{{errorMessage}}</span>
-    {{/if}}
+        <div class="container-fluid container-border p-3 mx-2 my-1 mw-80 col-sm">
+            <h2>Cadastro</h2>
+            <form action="/auth/signup" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" name="username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Senha" name="password">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="E-mail"
+                        name="email">
+                    <small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos seu e-mail.</small>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nome" name="name">
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        {{#if errorMessage}}
+        <span class="text-danger">{{errorMessage}}</span>
+        {{/if}}
+    </div>
 </div>
-
-<a href="/auth/login/facebook" class="btn btn-primary">Login com Facebook</a>
