@@ -17,7 +17,7 @@ const User = require('./models/User');
 const bcrypt = require('bcrypt');
 
 mongoose
-  .connect('mongodb://localhost/elementar', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
