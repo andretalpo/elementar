@@ -18,27 +18,14 @@ body {
     display: none;
 }
 
-a {
-    color: #564d4a;
-}
-
-.navbar {
-    height: 65px;
-}
-
 .nav-item {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 .navbar-brand {
     font-weight: bolder;
-    font-size: 1.7em;
+    font-size: 1.7rem;
 }
-
-/* .home {
-    background-color: #C20114;
-    color: #ecebf3;
-} */
 
 .home {
     background-color: rgba(0, 0, 0, 0.8);
@@ -48,6 +35,15 @@ a {
 
 .oneline {
     display: flex;
+}
+
+.home p {
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.home button {
+    border-radius: 0px 10% 10% 0px;
 }
 
 .oneline-wrap {
@@ -64,7 +60,12 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 94%;
+}
+
+@media (max-width: 768px) {
+    .bg-city {
+        overflow-y: scroll;
+    }
 }
 
 .center-v {
@@ -73,20 +74,37 @@ a {
     align-items: center;
 }
 
-.home p {
-    font-size: 1.3em;
-    font-weight: lighter;
-}
-
-.home input, .home button {
-    border-radius: 0px;
+h1 {
+    font-size: 2rem;
 }
 
 h2 {
-    font-size: 2.2em;
+    font-size: 2rem;
 }
 
 .container-border {
     border: 1px solid lightgray;
     border-radius: 5px;
+}
+
+.btn {
+    font-size: 1.2rem !important;
+}
+
+.home input {
+    height: 50px;
+    font-size: 1.2rem;
+    border-radius: 0px;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.login .btn, .create-news .btn, .admin-user .btn {
+    width: 230px;
+}
+
+.create-news .btn {
+    display: block;
 }
