@@ -1,13 +1,13 @@
-<div class="bg-city">
-    <div class="container-fluid center-v h-100">
+<div class="bg-city h-100">
+    <div class="container-fluid py-5">
         <div class="home p-5 container-sm shadow">
 
             <div class="oneline-wrap align-base">
                 <h1>{{title}}...</h1>
-                <p class="px-3">ou não?</p>
+                <p class="px-2">ou não?</p>
             </div>
 
-            <div class="container-sm py-4">
+            <div class="container-sm pt-4">
                 <p>Tem dúvidas se uma notícia é considerada fake news? Cole o link abaixo e descubra!</p>
                 <form class="py-4" action="/news" method="GET">
                     <div class="form-group oneline">
@@ -15,15 +15,17 @@
                         <button type="submit" class="btn btn-primary">Buscar</button>
                     </div>
                 </form>
-                <p>Você também pode se cadastrar, assim poderá inserir novas notícias e votar as que considera verdade
-                    ou mentira.</p>
+                <div class="center-text">
+                    <p><a href="/auth/login">Cadastre-se</a> para inserir novas notícias e votar 
+                    nas que considera verdade ou mentira.</p>
+                </div>
+                <div>
+                    {{#if errorMessage}}
+                    <span class="text-danger">{{errorMessage}}</span>
+                    {{/if}}
+                </div>
             </div>
 
-            <div>
-                {{#if errorMessage}}
-                <span class="text-danger">{{errorMessage}}</span>
-                {{/if}}
-            </div>
 
         </div>
     </div>

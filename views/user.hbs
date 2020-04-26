@@ -6,7 +6,6 @@
         <div class="form-group">
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail"
                 name="email" disabled>
-            <small id="emailHelp" class="form-text text-muted">Nós nunca compartilhamos seu e-mail.</small>
         </div>
         <div class="form-group">
             <input type="text" class="form-control" id="name" placeholder="Nome" name="name" disabled>
@@ -24,7 +23,7 @@
         <button class="btn btn-primary" id="btn-delete-user">Apagar</button>
 
         <div>
-            <span id="message">{{message}}</span>
+            <span class="text-danger" id="message">{{message}}</span>
         </div>
 
         <script src="/javascripts/user.js"></script>
