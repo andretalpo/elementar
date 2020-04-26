@@ -62,12 +62,6 @@ body {
     background-size: cover;
 }
 
-@media (max-width: 768px) {
-    .bg-city {
-        overflow-y: scroll;
-    }
-}
-
 .center-v {
     display: flex;
     flex-direction: row;
@@ -105,6 +99,13 @@ h2 {
     width: 230px;
 }
 
-.create-news .btn {
-    display: block;
+@media (max-width: 768px) {
+    .bg-city {
+        overflow-y: scroll;
+    }
+    .breakline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
