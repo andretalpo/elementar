@@ -1,29 +1,37 @@
-<h2>Bem vindo, {{user.name}}</h2>
-<a href="/news/create">Cadastrar Notícia</a>
-<a href="/user" class="invisible" id="gestaoUsuario">Gestão de Usuários</a>
+<div class="container-fluid user-home">
+    <div class="container-border p-3 mx-3 my-4">
+        <div class="oneline align-base space-between mt-2 mb-3">
+            <h3>Bem vindo, {{user.name}}!</h2>
+                <div class="oneline-wrap">
+                    <a href="/news/create" class="btn btn-primary m-1">Cadastrar Notícia</a>
+                    <a href="/user" class="invisible btn btn-primary m-1" id="gestaoUsuario">Gestão de Usuários</a>
+                </div>
+        </div>
 
-<div>
-    {{#each news}}
-    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
-        <div class="card-header"><a href="/news?newsUrl={{this.newsUrl}}">{{this.title}}</a></div>
-        <div class="card-body">
-            <p class="card-text">{{this.newsUrl}}</p>
+        <div class="mt-4 mb-4">
+            {{#each news}}
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header"><a href="/news?newsUrl={{this.newsUrl}}">{{this.title}}</a></div>
+                <div class="card-body">
+                    <p class="card-text"><a href="{{this.newsUrl}}">{{this.newsUrl}}</a></p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <form action="/news" method="GET">
+            <div class="form-group oneline">
+                <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+
+        <div>
+            {{#if errorMessage}}
+            <span class="text-danger">{{errorMessage}}</span>
+            {{/if}}
         </div>
     </div>
-    {{/each}}
-</div>
-
-<form action="/news" method="GET">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Ex: http://google.com" name="newsUrl">
-        <button type="submit" class="btn btn-primary">Buscar</button>
-    </div>
-</form>
-
-<div>
-    {{#if errorMessage}}
-    <span>{{errorMessage}}</span>
-    {{/if}}
 </div>
 
 <script src="/javascripts/user-home.js"></script>
