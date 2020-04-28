@@ -1,24 +1,46 @@
-<h2>{{news.title}}</h2>
-<span id="newsId" newsId={{news._id}}></span>
-<h3>{{news.newsUrl}}</h3>
-<p>Análise de especialista: {{news.specText}}</p>
-<textarea class="invisible" name="text-analise" id="textAnalise" cols="30" rows="10"></textarea>
-<p>Fonte: {{news.sourceUrl}}</p>
-<input class="invisible" type="text" name="text-fonte" id="textFonte">
-{{!-- <p>{{news.resultadoApi}}</p> --}}
-<h5>Votação dos membros</h5>
-<p>Verdadeiro: {{news.truthVotes}} voto(s)</p>
-<button class="btn btn-success vote-button invisible" id="voteTruth">Verdadeiro</button>
-<p>Falso: {{news.fakeVotes}} voto(s)</p>
-<button class="btn btn-danger vote-button invisible" id="voteFake">Falso</button>
-<button class="btn btn-primary invisible" id="adicionarAnalise">Editar análise</button>
-<button class="btn btn-primary invisible" id="salvarAnalise">Confirmar</button>
+<div class="container-fluid news">
+    <div class="container-border p-3 mx-3 my-4">
+        <div class="container-fluid container-border px-3 py-2">
+            <h2>{{news.title}}</h2>
+            <span id="newsId" newsId={{news._id}}></span>
+            <h3 class="pt-2">{{news.newsUrl}}</h3>
+        </div>
+        <div class="container-fluid container-border mt-3 px-3 py-3">
+            <p><span class="bold">Análise de especialista:</span> {{news.specText}}</p>
+            <textarea class="invisible form-control mb-3" name="text-analise" id="textAnalise" cols="30" rows="10"
+                placeholder="Análise"></textarea>
+            <p><span class="bold">Fonte:</span> {{news.sourceUrl}}</p>
+            <input class="invisible form-control mb-3" type="text" name="text-fonte" id="textFonte"
+                placeholder="Ex: http://google.com">
+            <div class="breakline">
+                <button class="btn btn-primary invisible" id="adicionarAnalise">Editar análise</button>
+                <button class="btn btn-primary invisible" id="salvarAnalise">Confirmar</button>
+            </div>
+        </div>
+        {{!-- <p>{{news.resultadoApi}}</p> --}}
 
-<button class="btn btn-primary invisible" id="excluirNoticia">Excluir Notícia</button>
+        <div class="container-fluid container-border center-text my-3 py-3">
+            <h4 class="bold">Votação dos membros</h5>
+                <div class="oneline-wrap space-around">
+                    <div class="m-3">
+                        <p class="bold text-success">Verdadeira: {{news.truthVotes}} voto(s)</p>
+                        <button class="btn btn-success vote-button invisible" id="voteTruth">Verdadeira</button>
+                    </div>
+                    <div class="m-3">
+                        <p class="bold text-danger">Falsa: {{news.fakeVotes}} voto(s)</p>
+                        <button class="btn btn-danger vote-button invisible" id="voteFake">Falsa</button>
+                    </div>
+                </div>
+        </div>
 
+        <div class="breakline">
+            <button class="btn btn-primary invisible" id="excluirNoticia">Excluir Notícia</button>
+        </div>
 
-<div>
-    <span id="message">{{message}}</span>
+        <div>
+            <span class="text-danger" id="message">{{message}}</span>
+        </div>
+
+    </div>
 </div>
-
 <script src="/javascripts/news.js"></script>

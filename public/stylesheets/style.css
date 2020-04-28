@@ -99,7 +99,7 @@ h3 {
     text-align: center;
 }
 
-.login .btn, .create-news .btn, .admin-user .btn {
+.login .btn, .create-news .btn, .admin-user .btn, .news .btn {
     width: 230px;
 }
 
@@ -108,12 +108,33 @@ h3 {
     justify-content: space-between;
 }
 
-.user-home h3 {
+.space-around {
+    display: flex;
+    justify-content: center;
+}
+
+.user-home h3, .news h3, .news h2 {
     font-weight: bold;
 }
 
 .user-home a {
     color: white;
+}
+
+.news h2 {
+    font-size: 1.8rem;
+}
+
+.news h3 {
+    font-size: 1.4rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.news p {
+    font-size: 1.2rem;
 }
 
 @media (max-width: 768px) {
