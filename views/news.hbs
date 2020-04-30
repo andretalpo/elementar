@@ -1,15 +1,15 @@
 <div class="container-fluid news">
     <div class="container-border p-3 mx-3 my-4">
         <div class="container-fluid container-border px-3 py-2">
-            <h2>{{news.title}}</h2>
+            <h2 class="word-wrap">{{news.title}}</h2>
             <span id="newsId" newsId={{news._id}}></span>
-            <h3 class="pt-2">{{news.newsUrl}}</h3>
+            <h3 class="pt-2 word-wrap">{{news.newsUrl}}</h3>
         </div>
         <div class="container-fluid container-border mt-3 px-3 py-3">
-            <p><span class="bold">Análise de especialista:</span> {{news.specText}}</p>
+            <p class="word-wrap"><span class="bold">Análise de especialista:</span> {{news.specText}}</p>
             <textarea class="invisible form-control mb-3" name="text-analise" id="textAnalise" cols="30" rows="10"
                 placeholder="Análise"></textarea>
-            <p><span class="bold">Fonte:</span> {{news.sourceUrl}}</p>
+            <p class="word-wrap"><span class="bold">Fonte:</span> {{news.sourceUrl}}</p>
             <input class="invisible form-control mb-3" type="text" name="text-fonte" id="textFonte"
                 placeholder="Ex: http://google.com">
             <div class="breakline">
