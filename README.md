@@ -1,6 +1,6 @@
 # Elementar --- News check
 
-Elementar is an application to help people to check if the new on the web are truthy or fake.
+Elementar is an application to help people to check if the news on the web are truthy or fake.
 
 ## Acknowledgments
 
